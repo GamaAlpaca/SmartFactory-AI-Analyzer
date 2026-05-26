@@ -1,0 +1,15 @@
+# 排除 Visual Studio 後台暫存資料夾
+.vs/
+
+# 排除編譯出來的產出資料夾
+[Bb]in/
+[Oo]bj/
+
+# 排除 SQLite 產生的本機資料庫檔案（因為上雲端要保持乾淨）
+*.db
+*.db-shm
+*.db-wal
+
+# 排除使用者個人設定
+*.user
+*.suo
