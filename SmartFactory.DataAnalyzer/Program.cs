@@ -12,7 +12,9 @@ namespace SmartFactory.DataAnalyzer
         private static readonly string ConnectionString = "Data Source=FactoryData.db";
 
         // ⚠️ 請把妳剛剛複製的 AIzaSy 開頭鑰匙，貼在下面這個雙引號裡面
-        private static readonly string ApiKey = "AIzaSyBT-nsZwarja3zqAd6w5DoYVt7ut1-E2E8";
+        // 🔒 修正：絕對不寫死，改成從操作系統的環境變數（Environment Variable）去抓取
+        private static readonly string ApiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY")
+            ?? throw new InvalidOperationException("錯誤：找不到環境變數 GEMINI_API_KEY，請先設定它！");
 
         // 因為呼叫 AI 是網路連線，Main 方法要改成 static async Task
         static async Task Main(string[] args)
